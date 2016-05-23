@@ -93,29 +93,53 @@ namespace ForMachine
 
     class Program
     {
+        public static int[] ForMachine(int[] workArray, int start, int howManyItem, Roller stepPattern )
+        {
+            Console.WriteLine(1 - 2 < 0);
+
+            int[] tempArray = new int[howManyItem];
+            int indexer = start;
+            int step = 0;
+            for (int counter = 1; counter <= howManyItem; counter++)
+            {
+                Console.WriteLine("counter: " + counter + "\t elem in workArray: " + indexer + "\t value: " + workArray[indexer] + "\tprevious step: " + step);
+                tempArray[counter - 1] = workArray[indexer];
+                step = stepPattern.Step;
+                indexer += step;
+                if (indexer > workArray.Length - 1)
+                {
+                    int temp = indexer - workArray.Length - 1;
+                    indexer = temp;
+                }
+
+                if (indexer < 0)
+                {
+                    int temp = workArray.Length - 1 + indexer;
+                    indexer = temp;
+                }
+            }
+
+            return tempArray;
+        }
+
         static void Main()
         {   
             // Example of usage:
+
             int[] lista = { 12, 22, 43, 13, 87, 45, 61, 84, 51, 86, 41, 74, 13, 75, 97, 11, 54, 39, 24, 93, 81, 55, 26, 46, 58, 52, 56 };
             Console.WriteLine("The content of the array:");
-            foreach (int cont in lista)
-            {
-                Console.Write(cont + " ");
-            }
-            Console.WriteLine(" ");
+            foreach (int cont in lista){ Console.Write(cont + " "); } Console.WriteLine(" ");
 
-            Roller StepPattern = new Roller( new int[]{3, -2, 4, -1, 2 } );
 
-            int start = 2;
-            int howManyItem = 13;
-            int indexer = start;
+            Roller StepPattern = new Roller( new int[]{3, -2, -4, -1, 2 } );
+            int startItemInArray = 2;
+            int howManyItemToProcess = 40;
+            int[] result = new int[howManyItemToProcess];
 
-            for (int counter = 1; counter <= howManyItem; counter++)
-            {
-                Console.WriteLine("element id: " + counter + "\t element in array: " + lista[indexer]);
-                indexer += StepPattern.Step;
-            }
+            result = ForMachine(lista, startItemInArray, howManyItemToProcess, StepPattern);
 
+            Console.WriteLine("\nResult: ");
+            foreach (int cont in result) { Console.Write(cont + " "); } Console.WriteLine(" ");
             Console.ReadKey();
         }
     }
