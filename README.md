@@ -1,10 +1,15 @@
-# For-Machine
-step through an int array by pattern, 
-written in C#
+Welcome to the For-Machine!
 
-example:
-array[10]{3,8,3,7,4,1,3,6,9,5}
+This program snipet written in C#
 
-pattern[3] {+2,-1,+3}
+*	get an int array of data
+*	an array of pattern
+*	and walk trough the data array by the pattern
+*	if its out of boundries, gonna enter the other side
 
-result 3,3,8,4,3,1,9
+for example:
+array of data: 3,5,1,7,4,2,4,5,6
+pattern: +2, -1, +3,
+first item: 4
+how many times to process: 9
+result: 7 2 4 5 3 6 1
