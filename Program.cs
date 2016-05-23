@@ -98,7 +98,7 @@ namespace ForMachine
             Console.WriteLine(1 - 2 < 0);
 
             int[] tempArray = new int[howManyItem];
-            int indexer = start;
+            int indexer = start - 1;
             int step = 0;
             for (int counter = 1; counter <= howManyItem; counter++)
             {
@@ -108,13 +108,13 @@ namespace ForMachine
                 indexer += step;
                 if (indexer > workArray.Length - 1)
                 {
-                    int temp = indexer - workArray.Length - 1;
+                    int temp = indexer - workArray.Length ;
                     indexer = temp;
                 }
 
                 if (indexer < 0)
                 {
-                    int temp = workArray.Length - 1 + indexer;
+                    int temp = workArray.Length + indexer;
                     indexer = temp;
                 }
             }
@@ -127,16 +127,18 @@ namespace ForMachine
             // Example of usage:
 
             int[] lista = { 12, 22, 43, 13, 87, 45, 61, 84, 51, 86, 41, 74, 13, 75, 97, 11, 54, 39, 24, 93, 81, 55, 26, 46, 58, 52, 56 };
+            int[] listb = { 3, 5, 1, 7, 4, 2, 4, 5, 6 };
             Console.WriteLine("The content of the array:");
-            foreach (int cont in lista){ Console.Write(cont + " "); } Console.WriteLine(" ");
+            foreach (int cont in listb){ Console.Write(cont + " "); } Console.WriteLine(" ");
 
 
-            Roller StepPattern = new Roller( new int[]{3, -2, -4, -1, 2 } );
-            int startItemInArray = 2;
-            int howManyItemToProcess = 40;
+            Roller StepPattern = new Roller(new int[] { +2, -1, +4 });
+            Roller series = new Roller(new int[] { -3, +4, -2, +7, +3, +2, +1 });
+            int startItemInArray = 4;
+            int howManyItemToProcess = 9;
             int[] result = new int[howManyItemToProcess];
 
-            result = ForMachine(lista, startItemInArray, howManyItemToProcess, StepPattern);
+            result = ForMachine(listb, startItemInArray, howManyItemToProcess, StepPattern);
 
             Console.WriteLine("\nResult: ");
             foreach (int cont in result) { Console.Write(cont + " "); } Console.WriteLine(" ");
