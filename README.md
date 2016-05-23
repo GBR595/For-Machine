@@ -13,7 +13,7 @@ pattern: { +2, -1, +4 }
 first item: 4
 how many times to process: 9
 
-counter: 1	 elem in workArray: 3	 value: 7	previous step: 0
+counter: 1	 elem in workArray: 3	 value: 7	previous step: 0;
 counter: 2	 elem in workArray: 5	 value: 2	previous step: 2
 counter: 3	 elem in workArray: 4	 value: 4	previous step: -1
 counter: 4	 elem in workArray: 8	 value: 6	previous step: 4
